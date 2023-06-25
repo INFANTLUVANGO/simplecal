@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #ecf0fe;
+        font-family: sans-serif; 
+    }
+    .container{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .calculator{
+        padding: 20px;
+        border-radius: 30px;
+        box-shadow: inset 5px 5px 12px #ffffff,
+                         5px 5px 12px rgba(0,0,0,.16);
+        display: grid;
+        grid-template-columns:repeat(4,68px); 
+        border: rgb(221, 192, 192) dashed 10px;    
+              
+    }
+    .title{
+        grid-column: span 4 ;
+        border:none ;
+        font-size: 40px;
+        border-radius: 30px;
+        margin-bottom: 20px;
+        margin-left: 17px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        text-transform: uppercase;
+    }  
+    .screen{
+        grid-column: span 4 ;
+        font-size: 50px;
+        background-color: #ecf0f3;
+        box-shadow:inset -5px 5px 12px #ffffff,
+                   inset 5px 5px 12px rgba(0,0,0,.16);
+        border-radius: 30px;
+        text-align: end;
+        padding: 10px;
+        margin-bottom: 20px;
+        color:  rgb(171, 140, 140);
+    }
+    button{
+        height: 48px;
+        width: 48px;
+        background-color: #ecf0f3;
+        box-shadow: -5px 5px 12px #ffffff,
+                     5px 5px 12px rgba(0,0,0,.16);
+        border: none;
+        border-radius: 50%;
+        margin: 8px;
+        font-size: 16px;
+        color:  rgb(120, 86, 86);
+    }
+    .equal
+    {
+        width: 115px;
+        border-radius: 40px;
+    }
+    .name{
+        font-size: 12px;
+        padding: 0px;
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="calculator">
+        <input type="text" placeholder="Calculator" disabled  class="title">
+        <input type="text" style="border: none;" id="display" class="screen" placeholder="0">
+        <button onclick="window.clear()">CL</button>
+        <button onclick="del()">DEL</button>
+        <button onclick="show('%')">%</button>
+        <button onclick="show('/')">/</button>
+        <button onclick="show('7')">7</button>
+        <button onclick="show('8')">8</button>
+        <button onclick="show('9')">9</button>
+        <button onclick="show('*')">*</button>
+        <button onclick="show('4')">4</button>
+        <button onclick="show('5')">5</button>
+        <button onclick="show('6')">6</button>
+        <button onclick="show('-')">-</button> 
+        <button onclick="show('1')">1</button>
+        <button onclick="show('2')">2</button>
+        <button onclick="show('3')">3</button>
+        <button onclick="show('+')">+</button>
+        <button onclick="show('.')">.</button>
+        <button onclick="show('0')">0</button>
+        <button onclick=cal() class="equal">=</button>
+        <input type="text" placeholder="Designed by INFANT LUVANGO P" disabled class="title name">
+    </div>
+</div>            
+    <script>
+        var output=document.getElementById("display");
+        function show(num)
+        {
+            output.value +=num;
+        }
+       function cal()
+       {
+        try{
+            output.value=eval(output.value);
+        }
+        catch(err)
+        {
+            alert('Invalid');
+        }
+       }
+       function clear()
+       {
+        output.value= "";
+       }
+       function del()
+       {
+          output.value=output.value.slice(0,-1);
+       }
+    </script>
+</body>
+</html>
+
